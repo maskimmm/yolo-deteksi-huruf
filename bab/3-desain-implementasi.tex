@@ -62,35 +62,15 @@ Proses pengumpulan citra huruf balok tulisan tangan pada papan tulis dimulai den
 \subsection{Proses Pelabelan Dataset}
 \label{subsec:proseslabelling}
 
-Proses pelabelan yaitu merupakan proses pemberian label dengan memberikan \textit{bounding box} pada objek dan nama kelas pada objek tersebut. Tujuan dari proses pelabelan ini yaitu untuk mendapatkan \textit{ground-truth bounding box}. Proses pelabelan dilakukan dengan menggunakan bantuan \textit{tool} yaitu Roboflow, dan dilihat pada gambar \ref*{fig:labellingroboflow}. Sebelum proses pelabelan dilakukan, citra yang telah dikumpulkan sebelumnya diupload pada \textit{workspace} Roboflow. Setelah diberikan \textit{bounding box}, citra yang telah diberikan label selanjutnya dibagi menjadi \textit{training sets} dan \textit{testing sets}. Adapun pembagian \textit{training testing sets} menggunakan komposisi 80\% \textit{training sets} dan 20\% \textit{testing sets}. \par
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.25]{gambar/labelling.png}
-    \caption{Proses Pelabelan menggunakan Roboflow}
-    \label{fig:labellingroboflow}
-\end{figure}
+Proses pelabelan yaitu merupakan proses pemberian label dengan memberikan \textit{bounding box} pada objek dan nama kelas pada objek tersebut. Tujuan dari proses pelabelan ini yaitu untuk mendapatkan \textit{ground-truth bounding box}. Proses pelabelan dilakukan dengan menggunakan bantuan \textit{tool} yaitu Roboflow. Sebelum proses pelabelan dilakukan, citra yang telah dikumpulkan sebelumnya diupload pada \textit{workspace} Roboflow. Setelah diberikan \textit{bounding box}, citra yang telah diberikan label selanjutnya dibagi menjadi \textit{training sets} dan \textit{testing sets}. \par
+% Adapun pembagian \textit{training testing sets} menggunakan komposisi 80\% \textit{training sets} dan 20\% \textit{testing sets}. \par
 
 \subsection{\textit{Image Pre-Processing}}
 \label{subsec:imagepreprocess}
 
-Pada tahapan \textit{image pre-processing} ini dilakukan 3 jenis pre-proses yaitu \textit{resize, grayscalling}, dan \textit{bounding box rotation}. Pada proses \textit{resize}, citra yang telah diambil ukurannya diperkecil (diregangkan) menjadi ukuran 416x4 16, hal ini bertujuan untuk memperkecil ukuran file serta mempercepat proses \textit{training} mengingat jumlah data dan jumlah kelas yang sangat banyak. \par
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.35]{gambar/grayscalling.png}
-    \caption{Gambar Sebelum dan Setelah Proses \textit{Grayscalling}}
-    \label{fig:grayscallingdataset}
-\end{figure}
+Pada tahapan \textit{image pre-processing} ini dilakukan 3 jenis pre-proses yaitu \textit{resize, grayscalling}, dan \textit{bounding box rotation}. Pada proses \textit{resize}, citra yang telah diambil ukurannya diperkecil (diregangkan) menjadi ukuran 416x416, hal ini bertujuan untuk memperkecil ukuran file serta mempercepat proses \textit{training} mengingat jumlah data dan jumlah kelas yang banyak. \par
 
 Pada proses \textit{grayscalling}, gambar dibuat menjadi warna abu dengan tujuan untuk memperkecil variasi warna spidol pada media papan tulis sehingga model yang dibuat berfokus hanya pada pola tulisan tangan pada papan tulis saja dan tidak terfokus ke warna yang digunakan untuk menulis pada papan tulisnya. \par
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.32]{gambar/bbrotation.png}
-    \caption{Gambar Sebelum dan Setelah Proses \textit{Bounding Box Rotation}}
-    \label{fig:bbrotation}
-\end{figure}
 
 Terakhir, dilakukan proses \textit{bounding box rotation} seperti pada gambar \ref*{fig:bbrotation}, yaitu melakukan rotasi pada skala \textit{bounding box}, tujuannya untuk menambah variasi sehingga model yang tercipta lebih akurat ketika pengambilan citra tidak diambil tepat didepan objek. Adapun konfigurasi dari \textit{bounding box rotation} yaitu antara -15\textdegree\space dan +15\textdegree. \par
 % perlu g y tabel konfigurasi preproses yang digunakan
@@ -103,24 +83,7 @@ Terakhir, dilakukan proses \textit{bounding box rotation} seperti pada gambar \r
 Sebelum proses \textit{training} dilakukan, perlu ditentukan jenis \textit{pretrained weights} yang akan digunakan. Pada YOLOv5, terdapat beberapa jenis \textit{pretrained weights} yang tersedia yaitu YOLOv5n, YOLOv5s, YOLOv5m, YOLOv5l, dan YOLOv5x. Pada tugas akhir ini, \textit{pretrained weight} yang digunakan yaitu YOLOv5s. \par
 % Adapun konfigurasi layer YOLOv5 secara lebih lengkap telah dibahas pada tinjauan pustaka ttg yolov5 
 
-Setelah menentukan jenis \textit{pretrained weight} yang akan digunakan, selanjutnya yaitu menentukan konfigurasi \textit{hyperparameter} untuk data yang akan di-\textit{train}. Konfigurasi \textit{hyperparameter} yang dilakukan yaitu pengaturan epochs, \textit{batch size,} dan \textit{image size}. \par
-
-\begin{table}[H]
-    \begin{center}
-        \begin{tabular}{|l|c|}
-        \hline
-        \multicolumn{1}{|c|}{\textbf{Parameter}} & \textbf{Nilai} \\ \hline
-        \textit{Weights}                         & YOLOv5s                 \\ \hline
-        Epochs                                   & 30                      \\ \hline
-        \textit{Batch-Size}                      & 16                      \\ \hline
-        \textit{Image Size}                      & 416                     \\ \hline
-        \end{tabular}
-    \end{center}
-    \caption{Detail Parameter yang Digunakan}
-    \label{tb:parametertrain}
-    \end{table}
-
-\noindent Adapun penjelasan dari masing-masing pengaturan yaitu: \par
+Setelah menentukan jenis \textit{pretrained weight} yang akan digunakan, selanjutnya yaitu menentukan konfigurasi \textit{hyperparameter} untuk data yang akan di-\textit{train}. Konfigurasi \textit{hyperparameter} yang dilakukan yaitu pengaturan epochs, \textit{batch size,} dan \textit{image size}. Adapun penjelasan dari masing-masing pengaturan yaitu: \par
 \begin{enumerate}[nolistsep]
     \item \textbf{Epochs}. Epochs adalah \textit{hyperparameter} yang berfungsi untuk menentukan jumlah pengulangan atau berapa kali suatu algoritma \textit{learning} akan melakukan proses \textit{learning} suatu \textit{dataset training}. Secara sederhana, semakin besar jumlah epochs maka model yang dihasilkan memiliki tingkat akurasi yang lebih tinggi namun waktu yang dibutuhkan untuk melakukan \textit{learning} akan semakin lambat. Pada tugas akhir ini, epochs yang digunakan yaitu 30.
     \item \textit{\textbf{Batch-size}}. \textit{Batch-size} adalah \textit{hyperparameter} yang berfungsi untuk mengontrol jumlah sampel training untuk dikerjakan sebelum parameter internal model diperbarui. Pada tugas akhir ini, \textit{batch-size} yang digunakan yaitu 16.
@@ -128,12 +91,12 @@ Setelah menentukan jenis \textit{pretrained weight} yang akan digunakan, selanju
 \end{enumerate}
 % tambahkan tabel spesifikasi model yg digunakan
 
-\section{Hasil Model}
-\label{sec:hasilmodel}
+\section{Pembuatan Model}
+\label{sec:pembuatanmodel}
 
-Pada tahapan hasil model, setelah dilakukan proses \textit{training,} hasil tersebut akan tersimpan pada direktori 'runs/train/..'. Pada direktori tersebut didapatkan \textit{checkpoint} hasil model beserta dengan grafik atau detil data hasil pada tiap proses pengulangan. \par
+Pada tahapan pembuatan model, setelah dilakukan proses \textit{training,} hasil tersebut akan tersimpan pada direktori 'runs/train/..'. Pada direktori tersebut didapatkan \textit{checkpoint} hasil model beserta dengan grafik atau detil data hasil pada tiap proses pengulangan. \par
 % tampilkan gambar result.csv
 % tampilkan hasil deteksi
-
 Pada tahapan selanjutnya, ketika hasil model dirasa telah cukup bagus baik itu dari segi data angka performa maupun dari hasil proses deteksi, selanjutnya yaitu pembuatan algoritma konversi gambar menjadi teks. Proses penyusunan teks dimulai dari menentukan koordinat seluruh \textit{bounding box} yang tersedia. Setelah koordinat \textit{bounding box} didapat, seluruh \textit{bounding box} yang terbaca dikelompokan berdasarkan kedekatan antara \textit{bounding box} pertama dengan \textit{bounding box} selanjutnya, jika jarak antaranya memenuhi \textit{threshold} tertentu maka akan dikelompokan menjadi 1, dan jika tidak memenuhi maka akan diletakan pada kelompok berikutnya. Adapun prioritas pengelompokan diatur berdasarkan koordinat Y dahulu lalu dilanjutkan dengan koordinat X, hal ini bertujuan agar teks yang ditampilkan berurutan dari baris atas lalu bergerak kearah X+, dan dilanjut pada baris kedua dan seterusnya. Alur dari pembentukan algoritma konversi gambar menjadi teks dapat dilihat pada gambar berikut. \par
 % tampilkan flowchart pembuatan  
+% alur pembuatan model: start -> input gambar -> deteksi bounding box -> mencari xy bounding box -> pengelompokan berdasarkan y bounding box -> pengelompokan berdasarkan x bounding box -> konversi kelas menjadi bentuk string -> menampilkan label -> selesai
