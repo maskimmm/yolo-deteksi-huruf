@@ -8,23 +8,29 @@
 \section{Latar Belakang}
 \label{sec:latarbelakang}
 
-Komunikasi, pada dasarnya merupakan aktivitas dasar manusia. Dengan adanya komunikasi, manusia dapat saling berhubungan dengan satu sama lain. Tulisan merupakan salah satu bentuk ragam komunikasi. Dengan adanya tulisan, suatu ide atau gagasan dapat dituangkan dan disampaikan kepada pembaca secara asinkronus serta dapat diabadikan. Secara umum, ragam tulisan dibagi menjadi 2 yaitu tulisan cetak pada dokumen dan tulisan tangan.\par
-Segmentasi dokumen gambar menjadi suatu bentuk kalimat merupakan langkah penting untuk memahami suatu dokumen. Tidak seperti dokumen cetak, segmentasi pada dokumen bertulisan tangan masih merupakan suatu hal yang menantang karena memiliki ukuran spasi yang tidak menentu antar hurufnya serta memiliki variasi bentuk gaya tulisan \citep*{ryu2015word}. Tulisan cetak pada dokumen merupakan tulisan yang pengaturan dan gaya penulisannya diatur dan dikenali oleh program komputer.\par
-\textit{Optical Character Recognition (OCR)} adalah proses konversi gambar huruf menjadi karakter ASCII yang dikenali oleh komputer. Walaupun diklaim memiliki akurasi hingga 99\%, \textit{Optical Character Recognition (OCR)} yang ada saat ini memiliki penurunan akurasi ketika dihadapkan kepada gambar dengan kualitas rendah seperti \textit{noise} gambar, kualitas cetakan rendah, karakter berdekatan \citep*{ImageMalu2001approachtch}, dan karakter dengan variasi yang tidak umum (tulisan tangan).\par
-Papan tulis merupakan suatu media yang biasa digunakan untuk menuangkan tulisan, ide, ataupun gagasan utamanya dalam proses belajar dan mengajar. Seiring dengan perkembangan teknologi, berbagai teknologi \textit{Internet of Things} diterapkan pada papan tulis sehingga memiliki fitur tambahan yang dapat mempermudah proses belajar dan mengajar. Telah banyak teknologi yang dapat memproyeksikan gambar atau tulisan pada komputer ke papan tulis pintar \citep*{kellerman2018smart}. 
-% Namun, belum ada teknologi yang mampu mengenali tulisan tangan pada papan tulis pintar.
+Komunikasi adalah suatu proses ketika seseorang atau beberapa orang, kelompok, organisasi, atau masyarakat menciptakan, dan menggunakan informasi agar terhubung dengan lingkungan dan orang lain \citep*{ruben2006communication}. Komunikasi, pada dasarnya merupakan aktivitas dasar manusia. Dengan adanya komunikasi, manusia dapat saling berhubungan dengan satu sama lain. Komunikasi dapat berbentuk verbal dan non-verbal. \par
 
+Tulisan merupakan salah satu bentuk ragam komunikasi. Dengan adanya tulisan, suatu ide atau gagasan dapat dituangkan dan disampaikan kepada pihak lain tanpa harus berada di tempat yang sama dengan pihak lain, serta suatu ide ataupun gagasan dapat diabadikan. Secara umum, ragam tulisan itu sendiri terbagi menjadi 2 jenis tulisan yaitu tulisan cetak pada dokumen dan tulisan tangan.\par
+
+Dalam rangka memahami suatu dokumen, segmentasi dokumen gambar menjadi suatu bentuk kalimat merupakan langkah penting untuk memahami suatu dokumen. Namun tidak seperti pada dokumen cetak, memahami suatu dokumen bertulisan tangan merupakan suatu hal yang berbeda. Tidak seperti dokumen cetak yang telah diberi format tertentu (ukuran \textit{font, \textnormal{jenis} font \textnormal{dan} spacing} pada perangkat keras, dokumen bertulisan tangan masih memiliki variasi penulisan yang sangat beragam. Hal ini disebabkan oleh karena manusia memiliki ketelitian dan konsistensi yang berbeda dibandingkan perangkat mesin, sehingga terjadi perbedaan variasi dalam penulisan seperti ukuran \textit{spacing} yang tidak menentu antar hurufnya dan bentuk serta gaya tulisan yang berbeda \citep*{ryu2015word}. Tulisan cetak pada dokumen sendiri umumnya pengaturan dan gaya penulisannya dapat diatur dan dapat dikenali oleh program komputer.\par
+
+Inovasi pengembangan teknologi yang diterapkan pada papan tulis merupakan upaya dalam rangka meningkatkan peranan teknologi dalam dunia pendidikan. Dalam Undang-Undang No. 20 tahun 2003 tentang Sistem Pendidikan Nasional tertuang bahwa perkembangan teknologi bagi pendidikan adalah usaha sadar terencana untuk mewujudkan suasana belajar dan proses pembelajaran agar peserta didik secara aktif mengembangkan potensi diri. Papan tulis itu sendiri merupakan suatu media yang umum digunakan untuk menuangkan tulisan, ide, ataupun gagasan utamanya dalam proses belajar dan mengajar. Papan tulis pada ranah edukasi seringkali memiliki peran penting dalam menciptakan proses belajar dan mengajar yang interaktif antara penlajar dan pengajar. Pada awal diciptakan, papan tulis umumnya berwarna hitam serta menggunakan kapur sebagai alat tulisnya, namun seiring dengan perkembangannya jaman,  muncullah inovasi papan tulis putih (\textit{whiteboard}). Seiring dengan perkembangan teknologi juga, berbagai teknologi \textit{internet of things} diterapkan pada papan tulis putih sehingga memiliki fitur tambahan yang dapat mempermudah proses belajar dan mengajar serta menambah interaktifitas dalam proses belajar dan mengajar. Telah banyak teknologi yang dapat memproyeksikan gambar atau tulisan pada komputer ke papan tulis pintar \citep*{kellerman2018smart}. \par
 
 \section{Permasalahan}
 \label{sec:permasalahan}
-Penerapan teknologi berbasis IoT untuk melakukan proses pengenalan huruf tulisan tangan pada papan tulis masih merupakan sebuah tantangan dikarenakan teknologi OCR itu sendiri masih kurang mendukung pengenalan tulisan tangan pada papan tulis. Oleh karena itu, diperlukannya suatu metode untuk mendeteksi dan klasifikasi teks huruf balok yang nantinya dapat diterapkan pada alat \textit{Smart Whiteboard.}
-
-% Permasalahan yang didapat yaitu diperlukannya suatu metode untuk mendeteksi dan klasifikasi teks huruf balok untuk diterapkan pada alat \textit{Smart Whiteboard.} 
+Berdasarkan latar belakang yang telah dipaparkan sebelumnya, penerapan teknologi berbasis iot untuk melakukan proses pengenalan huruf tulisan tangan pada papan tulis masih merupakan sebuah tantangan. Oleh karena itu, diperlukannya suatu metode untuk mendeteksi dan klasifikasi teks huruf balok yang nantinya dapat diterapkan pada alat \textit{Smart Whiteboard.}
 
 \section{Batasan Masalah}
 \label{sec:batasanmasalah}
 
-Batasan masalah dari permasalahan ini yaitu tulisan tangan yang digunakan yaitu ditulis pada media papan tulis dan terbatas pada huruf balok.
+Untuk memfokuskan permasalahan yang diangkat maka dilakukan pembatasan masalah. Adapun Batasan masalah dari penelitian ini diantaranya yaitu:
+\begin{enumerate}[nolistsep]
+    \item Metode yang digunakan untuk proses deteksi tulisan tangan pada papan tulis menggunakan \textit{deep learning object detection \textnormal{yaitu} You Only Look Once (YOLO)} versi 5 (YOLOv5).
+    \item Dataset yang digunakan untuk proses \textit{training, validation, \textnormal{dan} testing} bersumber dari dataset yang dibuat oleh penulis sendiri.
+    \item Dataset yang digunakan dibuat pada media papan tulis menggunakan spidol yang kemudian diambil citranya.
+    \item Jenis input yang dapat dideteksi yaitu terbatas pada huruf latin kapital, angka, dan simbol.
+    \item Pengujian dilakukan dengan kondisi yaitu pengambilan citra dengan variasi jarak berbeda (20cm dan 40cm) dan pengambilan citra dengan variasi intensitas cahaya berbeda. 
+\end{enumerate} 
 
 \section{Tujuan}
 \label{sec:Tujuan}
