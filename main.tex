@@ -35,11 +35,14 @@
 \usepackage{lipsum}
 \usepackage{lmodern}
 \usepackage{longtable}
+\usepackage{multirow}
 \usepackage{tabularx}
 \usepackage{wrapfig}
 \usepackage{float}
 \usepackage{caption}{\setlength{\abovecaptionskip}{3ex}
-\setlength{\belowcaptionskip}{3ex}}
+\setlength{\belowcaptionskip}{1ex}}
+\usepackage{subcaption}
+
 % Definisi untuk "Hati ini sengaja dikosongkan"
 \patchcmd{\cleardoublepage}{\hbox{}}{
   \thispagestyle{empty}
@@ -91,6 +94,10 @@
 
 % Isi keseluruhan dokumen
 \begin{document}
+
+  % TOC Numbering
+  \setcounter{tocdepth}{3}
+  \setcounter{secnumdepth}{3}
 
   % Sampul luar Bahasa Indonesia
   \newcommand\covercontents{sampul/konten-id.tex}
