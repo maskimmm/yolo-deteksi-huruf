@@ -1,25 +1,27 @@
 \chapter{PENUTUP}
 \label{chap:penutup}
 
+Pada bab ini akan dipaparkan kesimpulan dari hasil pengujian yang akan menjadi jawaban dari permasalahan yang diangkat oleh pelaksanaan tugas akhir ini. Selain itu juga, dipaparkan saran mengenai hal yang dapat dilakukan untuk mengembangkan penelitian ini kedepannya.
 % Ubah bagian-bagian berikut dengan isi dari penutup
 
 \section{Kesimpulan}
 \label{sec:kesimpulan}
 
-% Berdasarkan hasil pengujian yang \lipsum[1][1-3] sebagai berikut:
-
-% \begin{enumerate}[nolistsep]
-
-%   \item Pembuatan \lipsum[2][1-3]
-
-%   \item \lipsum[2][4-6]
-
-%   \item \lipsum[2][7-10]
-
-% \end{enumerate}
+Berdasarkan hasil pelaksanaan metodologi dan skenario pengujian, dapat diambil beberapa kesimpulan sebagai berikut:
+\begin{enumerate}[nolistsep]
+    \item Arsitektur YOLO dapat digunakan untuk proses terdeteksi tulisan tangan pada papan tulis walaupun secara kondisi nyata masih terbilang \textit{overfit.}
+    \item Dari pengujian variasi \textit{pretrained weight,} didapatkan hasil bahwa semakin kompleks varian yang digunakan maka hasil yang didapatkan akan semakin baik, namun waktu yang dibutuhkan dalam proses pembuatan model akan memakan waktu lebih lama juga.
+    \item Dari pengujian dengan variasi jarak, didapatkan hasil bahwa jarak pengambilan citra memiliki pengaruh penting, karena jika objek citra diambil pada jarak yang terlalu dekat atau terlalu jauh maka hasilnya akan semakin tidak optimal. Adapun pada pelaksanaan tugas akhir ini, hasil optimal didapatkan pada pengambilan citra dengan jarak kisaran 20cm.
+    \item Dari pengujian dengan variasi intensitas cahaya, didapatkan hasil bahwa intensitas cahaya dalam pengambilan citra memiliki peran penting, karena pada dasarnya \textit{object detection deep learning} memanfaatkan \textit{edge detection} sehingga jika pencahayaan terlalu tinggi ataupun terlalu rendah mengakibatkan tingkat kontras antara objek dan non objek tidak memiliki kontras yang tinggi. Adapun pada penelitian tugas akhir ini hasil optimal didapatkan ketika pencahayaan dalam kondisi sedikit lebih gelap.
+\end{enumerate}
 
 \section{Saran}
 \label{chap:saran}
+
+Untuk keperluan pengembangan dari penelitian ini, terdapat beberapa saran yang dapat diambil yaitu:
+\begin{enumerate}[nolistsep]
+    \item Menambahkan dataset untuk keperluan \textit{train, validation \textnormal{ataupun} testing}, terutama dengan variasi penulis berbeda mengingat hasil yang didapatkan ketika menggunakan data dari responden memiliki hasil pembacaan lebih rendah.
+\end{enumerate}
 
 % Untuk pengembangan lebih lanjut pada \lipsum[1][1-3] antara lain:
 

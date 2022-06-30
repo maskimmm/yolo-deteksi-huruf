@@ -12,7 +12,7 @@ Komunikasi adalah suatu proses ketika seseorang atau beberapa orang, kelompok, o
 
 Tulisan merupakan salah satu bentuk ragam komunikasi. Dengan adanya tulisan, suatu ide atau gagasan dapat dituangkan dan disampaikan kepada pihak lain tanpa harus berada di tempat yang sama dengan pihak lain, serta suatu ide ataupun gagasan dapat diabadikan. Secara umum, ragam tulisan itu sendiri terbagi menjadi 2 jenis tulisan yaitu tulisan cetak pada dokumen dan tulisan tangan.\par
 
-Dalam rangka memahami suatu dokumen, segmentasi dokumen gambar menjadi suatu bentuk kalimat merupakan langkah penting untuk memahami suatu dokumen. Namun tidak seperti pada dokumen cetak, memahami suatu dokumen bertulisan tangan merupakan suatu hal yang berbeda. Tidak seperti dokumen cetak yang telah diberi format tertentu (ukuran \textit{font, \textnormal{jenis} font \textnormal{dan} spacing} pada perangkat keras, dokumen bertulisan tangan masih memiliki variasi penulisan yang sangat beragam. Hal ini disebabkan oleh karena manusia memiliki ketelitian dan konsistensi yang berbeda dibandingkan perangkat mesin, sehingga terjadi perbedaan variasi dalam penulisan seperti ukuran \textit{spacing} yang tidak menentu antar hurufnya dan bentuk serta gaya tulisan yang berbeda \citep*{ryu2015word}. Tulisan cetak pada dokumen sendiri umumnya pengaturan dan gaya penulisannya dapat diatur dan dapat dikenali oleh program komputer.\par
+Dalam rangka memahami suatu dokumen, segmentasi dokumen gambar menjadi suatu bentuk kalimat merupakan langkah penting untuk memahami suatu dokumen. Namun tidak seperti pada dokumen cetak, memahami suatu dokumen bertulisan tangan merupakan suatu hal yang berbeda. Tidak seperti dokumen cetak yang telah diberi format tertentu (ukuran \textit{font, \textnormal{jenis} font \textnormal{dan} spacing}) pada perangkat keras, dokumen bertulisan tangan masih memiliki variasi penulisan yang sangat beragam. Hal ini disebabkan oleh karena manusia memiliki ketelitian dan konsistensi yang berbeda dibandingkan perangkat mesin, sehingga terjadi perbedaan variasi dalam penulisan seperti ukuran \textit{spacing} yang tidak menentu antar hurufnya dan bentuk serta gaya tulisan yang berbeda \citep*{ryu2015word}. Tulisan cetak pada dokumen sendiri umumnya pengaturan dan gaya penulisannya dapat diatur dan dapat dikenali oleh program komputer.\par
 
 Inovasi pengembangan teknologi yang diterapkan pada papan tulis merupakan upaya dalam rangka meningkatkan peranan teknologi dalam dunia pendidikan. Dalam Undang-Undang No. 20 tahun 2003 tentang Sistem Pendidikan Nasional tertuang bahwa perkembangan teknologi bagi pendidikan adalah usaha sadar terencana untuk mewujudkan suasana belajar dan proses pembelajaran agar peserta didik secara aktif mengembangkan potensi diri. Papan tulis itu sendiri merupakan suatu media yang umum digunakan untuk menuangkan tulisan, ide, ataupun gagasan utamanya dalam proses belajar dan mengajar. Papan tulis pada ranah edukasi seringkali memiliki peran penting dalam menciptakan proses belajar dan mengajar yang interaktif antara penlajar dan pengajar. Pada awal diciptakan, papan tulis umumnya berwarna hitam serta menggunakan kapur sebagai alat tulisnya, namun seiring dengan perkembangannya jaman,  muncullah inovasi papan tulis putih (\textit{whiteboard}). Seiring dengan perkembangan teknologi juga, berbagai teknologi \textit{internet of things} diterapkan pada papan tulis putih sehingga memiliki fitur tambahan yang dapat mempermudah proses belajar dan mengajar serta menambah interaktifitas dalam proses belajar dan mengajar. Telah banyak teknologi yang dapat memproyeksikan gambar atau tulisan pada komputer ke papan tulis pintar \citep*{kellerman2018smart}. \par
 
@@ -26,21 +26,33 @@ Berdasarkan latar belakang yang telah dipaparkan sebelumnya, penerapan teknologi
 Untuk memfokuskan permasalahan yang diangkat maka dilakukan pembatasan masalah. Adapun Batasan masalah dari penelitian ini diantaranya yaitu:
 \begin{enumerate}[nolistsep]
     \item Metode yang digunakan untuk proses deteksi tulisan tangan pada papan tulis menggunakan \textit{deep learning object detection \textnormal{yaitu} You Only Look Once (YOLO)} versi 5 (YOLOv5).
-    \item Dataset yang digunakan untuk proses \textit{training, validation, \textnormal{dan} testing} bersumber dari dataset yang dibuat oleh penulis sendiri.
+    \item Dataset yang digunakan untuk proses \textit{training \textnormal{dan} validation} bersumber dari dataset yang dibuat oleh penulis sendiri.
     \item Dataset yang digunakan dibuat pada media papan tulis menggunakan spidol yang kemudian diambil citranya.
     \item Jenis input yang dapat dideteksi yaitu terbatas pada huruf latin kapital, angka, dan simbol.
-    \item Pengujian dilakukan dengan kondisi yaitu pengambilan citra dengan variasi jarak berbeda (20cm dan 40cm) dan pengambilan citra dengan variasi intensitas cahaya berbeda. 
+    \item Pengujian dilakukan dengan kondisi yaitu pengambilan citra dengan variasi jarak berbeda dan pengambilan citra dengan variasi intensitas cahaya berbeda. 
 \end{enumerate} 
 
 \section{Tujuan}
 \label{sec:Tujuan}
 
-Berdasarkan permasalahan yang telah disebutkan, didapatkan tujuan dari dibuatnya tugas akhir ini yaitu untuk membuat program komputer yang dapat melakukan pengenalan teks huruf balok sehingga dapat diimplementasikan pada alat \textit{Smart Whiteboard.}
+Berdasarkan permasalahan yang telah disebutkan, didapatkan tujuan dari dibuatnya tugas akhir ini yaitu:
+\begin{enumerate}[nolistsep]
+    \item Membuat program komputer yang dapat melakukan pengenalan teks huruf balok sehingga dapat diimplementasikan pada alat \textit{Smart Whiteboard.}
+\end{enumerate}
+
 
 \section{Manfaat}
 \label{sec:manfaat}
 
-Manfaat dari dibuatnya tugas akhir ini yaitu untuk mempermudah proses pengenalan teks huruf balok papan tulis pada alat \textit{smart whiteboard.}
+Manfaat dari dibuatnya tugas akhir ini yaitu:
+\begin{enumerate} [nolistsep]
+    \item Bagi Penulis\\
+    Seluruh rangkaian pelaksanaan tugas akhir memiliki banyak manfaat bagi penulis, antara lain seperti mengasah kepekaan terhadap permasalahan yang nyata yang dihadapi oleh masyarakat, mengasah pola pikir agar lebih kritis, logis, inovatif serta sistematis dalam merumuskan pemecahan masalah.
+    \item Bagi Institusi\\
+    Melalui tugas akhir ini, diharapkan dapat menjadi inspirasi dan referensi dalam pengembangan bidang \textit{Deep Learning} khususnya menggunakan metode \textit{You Only Look Once (YOLO).}
+    \item Bagi Masyarakat\\
+    Penulis berharap bahwa perancangan tugas akhir dapat menjadi solusi tepat sasaran baik dari aspek permasalahan yang diangkan maupun kebutuhan masyarakat sehingga dapat memberikan manfaat yang nyata.
+\end{enumerate}
 
 % Format Buku TA baru, ga pake sistematika penulisan
 
