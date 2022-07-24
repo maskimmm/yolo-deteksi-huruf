@@ -17,6 +17,10 @@ Penelitian \textit{handwritten text segmentation using pixel based approach} men
 \label{subsec:pengenalanobjekrealtime}
 Pada penelitian ini, peneliti membuat pengenalan objek Makanan cepat saji dari \textit{video} dan \textit{real time webcam} menggunakan metode \textit{deep learning. You Only Look Once (YOLO)} merupakan model \textit{deep learning} yang digunakan untuk pengenalan objek. Jumlah data yang digunakan terdiri dari 468 gambar yang terdiri dari 3 jenis Makanan cepat saji yaitu \textit{hamburger, pizza, \textnormal{dan} hot dog}. Dari hasil penelitian, didapatkan hasil nilai avg loss pada model akhir yang dibangun yaitu 4.6\%, nilai validasi mAP 100\%, serta akurasi akhir berkisar antara 63\% sampai 100\% \citep*{karlina2020pengenalan}. \par
 
+\subsection{\textit{Safety Helmet Detection Based on YOLOv5}}
+\label{subsec:safetyhelmetyolov5}
+Pada penelitian \textit{Safety Helmet Detection Based on YOLOv5} bertujuan untuk membuat deteksi helm keselamatan menggunakan YOLOv5 untuk membangun suatu sistem monitoring helm keselamatan \textit{digital.} Jumlah data yang digunakan yaitu 6045 citra dari internet yang kemudian diberi anotasi dan dibagi menjadi \textit{training set \textnormal{dan} testing set} dengan rasio 2:1. Pada proses \textit{training} menggunakan 2 jenis kelas dengan epochs 100, \textit{learning rate} 0.01, \textit{optimizer} SGD, \textit{batch-size} 16, dan \textit{image-size} 640*640. Pada proses \textit{training} dengan \textit{pretrained weight} YOLOv5s didapatkan mAP 0.936, YOLOv5m didapatkan mAP 0.943, YOLOv5l 0.944, dan YOLOv5x 0.947 \citep{zhou2021safety}. \par
+
 % Per Teori Penunjang dibuat section baru
 
 % papan tulis
@@ -36,7 +40,7 @@ Citra digital terdiri dari elemen gambar yang juga dikenal sebagai piksel. Citra
 \section{\textit{Image Processing}}
 \label{sec:imageprocessing}
 Citra direpresentasikan dalam bentuk matriks numerik yang memiliki informasi intensitas atau warna pada tiap elemen gambar. Karena itu operasi matematika sangat penting dalam berbagai proses pengolahan citra. Dalam pelaksanaan proses pengolahan citra, sebagian proses dilakukan dalam citra skala abu-abu (\textit{grayscale}). Adapun untuk pengolahan citra berwarna, mulanya citra berwarna tersebut dapat didekomposisi menjadi komponen merah, hijau, dan biru dan masing-masing komponen diproses secara independen sebagai citra \textit{grayscale} \citep*{tyagi2018understanding}. Secara umum, proses pengolahan citra terbagi menjadi 3 tingkatan sebagai berikut:
-\begin{enumerate}
+\begin{enumerate}[nolistsep]
     \item \textit{Low-Level Image Processing. \textnormal{Pada} low-level image processing, input \textnormal{dan} output} adalah berupa gambar dan proses yang dilakukan merupakan operasi sederhana. Adapun contoh dari \textit{low-level image processing} yaitu seperti \textit{contrast enhancement \textnormal{dan} noice reduction.}  
     \item \textit{Mid-Level Image Processing. \textnormal{Pada} mid-level image processing,} proses yang dilakukan merupakan operasi yang melibatkan ekstraksi atribut dari suatu citra. Adapun contoh dari \textit{mid-level image processing \textnormal{yaitu seperti} Edges, Contours, \textnormal{dan} Regions.}
     \item \textit{High-Level Image Processing. \textnormal{Pada} high-level image processing,} proses yang dilakukan merupakan operasi kompleks yang berkaitan dengan analisis dan interpretasi konten untuk pengambilan keputusan.
@@ -202,6 +206,8 @@ YOLO merupakan salah satu algoritma pendeteksi objek yang dicetuskan oleh Redmon
 \subsection{YOLOv5}
 \label{subsec:yolov5}
 
+YOLOv5 merupakan versi pembaruan dari YOLO yang dicetuskan oleh Glen Jocher pada tahun 2020. YOLOv5 diluncurkan tidak lama setelah perilisan YOLOv4. YOLOv5 diperkenalkan menggunakan \textit{framweork} Pytorch. YOLOv5 terdiri dari 3 bagian utama yaitu \textit{Backbone, Neck, \textnormal{dan} Head.} Bagian \textit{backbone} YOLOv5 menggunakan CSP-Darknet53, bagian \textit{neck} YOLOv5 menggunakan SPPF dan CSP-PAN, sedangkan pada bagian \textit{head} YOLOv5 menggunakan YOLOv3 \textit{Head} \citep*{ultralyticsyolo}. Struktur YOLOv5 secara umum dapat dilihat pada Gambar \ref{fig:strukturyolov5}. \par
+
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.55]{gambar/yolov5.png}
@@ -209,5 +215,10 @@ YOLO merupakan salah satu algoritma pendeteksi objek yang dicetuskan oleh Redmon
     \label{fig:strukturyolov5}
 \end{figure}
 
-YOLOv5 merupakan versi pembaruan dari YOLO yang dicetuskan oleh Glen Jocher pada tahun 2020. YOLOv5 diluncurkan tidak lama setelah perilisan YOLOv4. YOLOv5 diperkenalkan menggunakan \textit{framweork} Pytorch. YOLOv5 terdiri dari 3 bagian utama yaitu \textit{Backbone, Neck, \textnormal{dan} Head.} Bagian \textit{backbone} YOLOv5 menggunakan CSP-Darknet53, bagian \textit{neck} YOLOv5 menggunakan SPPF dan CSP-PAN, sedangkan pada bagian \textit{head} YOLOv5 menggunakan YOLOv3 \textit{Head} \citep*{ultralyticsyolo}.
+Dalam pembuatan dataset untuk model YOLOv5, terdapat rekomendasi untuk jumlah data yang digunakan agar mendapatkan hasil yang optimal. Adapun rekomendasi tersebut yaitu \citep{ultralyticsyolo}:
+\begin{enumerate}[nolistsep]
+    \item \textit{\textbf{Image per Class.} Image per class} merupakan jumlah citra yang terdapat dalam suatu kelas terlepas dari pembagian \textit{training set, testing set \textnormal{ataupun} validation set.} Adapun rekomendasi yang dianjurkan yaitu tiap kelas memiliki jumlah citra sebanyak 1500 gambar atau lebih.
+    \item \textit{\textbf{Instance per Class.} Instance per class} merupakan jumlah objek yang telah diberi label dalam suatu kelas. Adapun rekomendasi yang dianjurkan yaitu tiap kelas memiliki \textit{instance} sebanyak 10000 objek atau lebih.
+    \item \textit{\textbf{Image Variety.} Image Variety} yaitu variasi citra dalam suatu kelas. Artinya sebuah citra dalam dataset sebaiknya representatif terhadap keadaan nyata \textit{(real world scenario).} Variasi citra dapat berupa variasi berdasarkan waktu ataupun musim pengambilan gambar, variasi pencahayaan gambar, variasi sudut pengambilan gambar, variasi sumber gambar.
+\end{enumerate}
 % //TODO: tabel comparison yolov5

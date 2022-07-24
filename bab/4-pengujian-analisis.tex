@@ -6,6 +6,8 @@
 Pada bab ini dipaparkan hasil dan analisa dari pelaksanaan tiap tahapan pada metodologi, serta dipaparkan mengenai skenario pengujian dan evaluasi pengujiannya. Pengujian dilakukan guna mengetahui tingkat kesalahan dan menarik kesimpulan dari metodologi serta analisis yang telah dibuat. Tahapan skenario pengujian meliputi hal berikut, yaitu: \par
 
 \begin{enumerate}[nolistsep]
+  \item Pengujian Performa YOLOv5s.
+  % dengan Penelitian Terdahulu
   \item Pengujian menggunakan \textit{pretrained weight} model yang bervariasi.
   \item Pengujian menggunakan input citra tulisan dari responden berbeda.
   \item Pengujian menggunakan input citra dengan jarak pengambilan citra bervariasi.
@@ -31,8 +33,8 @@ Pada tahapan akuisisi dataset, secara umum pelaksanaannya terbagi dalam 3 tahapa
     \label{tb:checklistpreprocess}\\
     \hline
     \multicolumn{1}{|c|}{\textbf{Jenis \textit{Pre-Process}}} & \multicolumn{1}{c|}{\textbf{Keterangan}} \\ \hline
-    %\endfirsthead
     \endhead
+    % 
     \textit{Auto Orient}                             & Diterapkan                                               \\ \hline
     \textit{Resize}                                  & \textit{Stretch to} 416x416                              \\ \hline
     \textit{Grayscale}                               & Diterapkan                                               \\ \hline
@@ -50,8 +52,6 @@ Pada tahapan akuisisi dataset, secara umum pelaksanaannya terbagi dalam 3 tahapa
   \label{tb:hasilakuisisidata}\\
   \hline
   \textbf{Kelas} & \textbf{Jumlah Citra} & \textbf{Jumlah Anotasi} & \textbf{\begin{tabular}[c]{@{}c@{}}\textit{Train Set}\\ (Anotasi)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}\textit{Validation Set}\\ (Anotasi)\end{tabular}} \\ \hline
-  %\endfirsthead
-  %
   \endhead
   %
   *              & 50                    & 750                     & 675                                                                       & 75                                                                             \\ \hline
@@ -84,7 +84,7 @@ Pada tahapan akuisisi dataset, secara umum pelaksanaannya terbagi dalam 3 tahapa
   T              & 50                    & 750                     & 675                                                                       & 75                                                                             \\ \hline
   U              & 50                    & 751                     & 676                                                                       & 75                                                                             \\ \hline
   V              & 50                    & 750                     & 675                                                                       & 75                                                                             \\ \hline
-  \textit{null}  & 26                    & -                       & -                                                                         & -                                                                              \\ \hline
+  % \textit{null}  & 26                    & -                       & -                                                                         & -                                                                              \\ \hline
   \end{longtable}
 \end{center}
 
@@ -141,8 +141,6 @@ Secara spesifik, total persebaran citra pada masing-masing kelas dapat dilihat p
     \label{tb:jumlahcitratiapkelas}\\
   \hline
   \textbf{Kelas} & \textbf{Jumlah Citra} & \textbf{\begin{tabular}[c]{@{}c@{}}\textit{Train Set}\\ (Citra)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}\textit{Validation Set}\\ (Citra)\end{tabular}} \\ \hline
-  %\endfirsthead
-  %
   \endhead
   %
   *             & 50           & 45           & 5           \\ \hline
@@ -175,7 +173,7 @@ Secara spesifik, total persebaran citra pada masing-masing kelas dapat dilihat p
   T             & 50           & 45           & 5           \\ \hline
   U             & 50           & 45           & 5           \\ \hline
   V             & 50           & 45           & 5           \\ \hline
-  \textit{null} & 26           & 26           & 0           \\ \hline
+  % \textit{null} & 26           & 26           & 0           \\ \hline
   \end{longtable}
 \end{center}
   
@@ -200,8 +198,6 @@ Setelah dilakukan proses pelabelan, \textit{output} yang dihasilkan yaitu gambar
   \label{tb:anotasitiapkelas}\\
   \hline
   \textbf{Kelas} & \textbf{Jumlah Anotasi} \\ \hline
-  %\endfirsthead
-  %
   \endhead
   %
   *             & 750             \\ \hline
@@ -237,10 +233,10 @@ Setelah dilakukan proses pelabelan, \textit{output} yang dihasilkan yaitu gambar
   \end{longtable}
 \end{center}
 
-\subsubsection{Hasil \textit{Image Pre-Processing}}
+\subsubsection{Hasil \textit{Image Transformation}}
 \label{subsubsec:hasilpreprocess}
 
-Pada tahap \textit{pre-process}, citra yang telah diberi label selanjutnya dilakukan \textit{pre-process} tertentu. Tahapan \textit{pre-process} bertujuan untuk mengurangi waktu \textit{training} dan meningkatkan performa. Secara ringkas, tahapan \textit{pre-process} yang dilakukan yaitu seperti pada Tabel \ref*{tb:checklistpreprocess}. Secara spesifik, pada tahapan \textit{pre-process} melakukan proses transformasi citra tertentu yaitu:
+Pada tahap \textit{image transformation}, citra yang telah diberi label selanjutnya dilakukan transformasi tertentu. Tahapan \textit{pre-process} bertujuan untuk mengurangi waktu \textit{training} dan meningkatkan performa. Secara ringkas, tahapan \textit{image transformation} yang dilakukan yaitu seperti pada Tabel \ref*{tb:checklistpreprocess}. Secara spesifik, pada tahapan \textit{image transormation} melakukan proses transformasi citra tertentu yaitu:
 \begin{enumerate}[nolistsep]
   \item \textit{\textbf{Auto Orient.} Auto Orient} dilakukan untuk agar citra yang ditampilkan orientasinya sesuai dengan ketika diambil pada pengambilan awal.
   \item \textit{\textbf{Resize.} Resize} dilakukan untuk mengubah dimensi citra menjadi lebih kecil. Citra diubah dengan pengaturan \textit{stretch} sehingga tiap citra yang sebelumnya tidak memiliki dimensi ukuran 416x416 diregangkan ukurannya menjadi ukuran 416x416.
@@ -282,14 +278,14 @@ Pada tugas akhir ini, \textit{pretrained weight} yang digunakan yaitu YOLOv5s. \
   \end{center}  
 \end{table}
 
-Proses \textit{training} dilakukan menggunakan dataset \textit{training set}. Setelah dilakukan proses \textit{train} dengan konfigurasi sesuai pada Tabel \ref*{tb:parametertrain}, selanjutnya dilakukan proses \textit{validation.} Pada tahapan \textit{validation} yaitu model diuji dengan menggunakan dataset \textit{validation set} dan kemudian didapatkan hasil \textit{train} berupa \textit{loss, precision, recall, \textnormal{dan} mAP} sesuai Gambar \ref*{fig:trainresult} yaitu: \par
-
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.5]{gambar/train_results.png}
   \caption{Hasil Training menggunakan YOLOv5s}
   \label{fig:trainresult}
 \end{figure}
+
+Proses \textit{training} dilakukan menggunakan dataset \textit{training set}. Setelah dilakukan proses \textit{train} dengan konfigurasi sesuai pada Tabel \ref*{tb:parametertrain}, selanjutnya dilakukan proses \textit{validation.} Pada tahapan \textit{validation} yaitu model diuji dengan menggunakan dataset \textit{validation set} dan kemudian didapatkan hasil \textit{train} berupa \textit{loss, precision, recall, \textnormal{dan} mAP} sesuai Gambar \ref*{fig:trainresult}. \par
 
 Serta didapatkan detail dari akurasi masing-masing huruf yaitu sebagai berikut: \par
 
@@ -299,8 +295,6 @@ Serta didapatkan detail dari akurasi masing-masing huruf yaitu sebagai berikut: 
     \label{tb:trainperkelas}\\
     \hline
     \textbf{Kelas} & \textbf{Gambar} & \textbf{Jumlah Label} & \textbf{P} & \textbf{R} & \textbf{mAP 0.5} & \textbf{mAP 0.5 0.95} \\ \hline
-    %\endfirsthead
-    %
     \endhead
     %
     *              & 5                          & 105                   & 0.999      & 1          & 0.995            & 0.875                 \\ \hline
@@ -336,26 +330,26 @@ Serta didapatkan detail dari akurasi masing-masing huruf yaitu sebagai berikut: 
   \end{longtable}
 \end{center}
 
-Setelah didapatkan hasil model, dilakukan proses validasi untuk menentukan apakah model tersebut sudah cukup akurat atau masih membutuhkan perbaikan. Pada proses validasi, terdapat matriks yang umum digunakan untuk melakukan validasi model yaitu \textit{evaluation metrics.} Menggunakan \textit{confusion matrix,} didapatkan hasil yaitu seperti pada gambar \ref*{fig:confusionmetrics} berikut.
+% Setelah didapatkan hasil model, dilakukan proses validasi untuk menentukan apakah model tersebut sudah cukup akurat atau masih membutuhkan perbaikan. Pada proses validasi, terdapat matriks yang umum digunakan untuk melakukan validasi model yaitu \textit{evaluation metrics.} Menggunakan \textit{confusion matrix,} didapatkan hasil yaitu seperti pada gambar \ref*{fig:confusionmetrics} berikut.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[scale=0.5]{gambar/confusion_matrix.png}
-  \caption{Hasil \textit{Evaluation Metrics} Menggunakan \textit{Confusion Matrix}}
-  \label{fig:confusionmetrics}
-\end{figure}
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[scale=0.5]{gambar/confusion_matrix.png}
+%   \caption{Hasil \textit{Evaluation Metrics} Menggunakan \textit{Confusion Matrix}}
+%   \label{fig:confusionmetrics}
+% \end{figure}
 
-Adapun hasil percobaan pembacaan menggunakan data diluar dataset didapatkan hasil sesuai Gambar \ref*{fig:detectbaru} berikut.
+% Adapun hasil percobaan pembacaan menggunakan data diluar dataset didapatkan hasil sesuai Gambar \ref*{fig:detectbaru} berikut.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[scale=0.05]{gambar/detectdiluardataset.jpg}
-  \caption{Hasil Deteksi Menggunakan Data Responden}
-  \label{fig:detectbaru}
-\end{figure}
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[scale=0.05]{gambar/detectdiluardataset.jpg}
+%   \caption{Hasil Deteksi Menggunakan Data Responden}
+%   \label{fig:detectbaru}
+% \end{figure}
 
 
-Pada tahapan \textit{training \textnormal{dan} validation} telah dilakukan proses \textit{training} model menggunakan \textit{pretrained weight} YOLOv5n, YOLOv5s, dan YOLOv5m. Menggunakan jumlah dataset yang sama, pemrosesan citra yang sama, serta konfigurasi \textit{hyperparameter} yang sama, didapatkan hasil bahwa semakin kompleks layer dan proses yang dilakukan dalam pembangunan model maka hasil yang didapatkan akan semakin baik, namun waktu yang dibutuhkan untuk membangun model tersebut juga menjadi lebih panjang.
+Pada tahapan \textit{training \textnormal{dan} validation} telah dilakukan proses \textit{training} model menggunakan \textit{pretrained weight} YOLOv5n, YOLOv5s, dan YOLOv5m. Menggunakan jumlah dataset yang sama, pemrosesan citra yang sama, serta konfigurasi \textit{hyperparameter} yang sama, didapatkan hasil bahwa semakin kompleks layer dan proses yang dilakukan dalam pembangunan model maka hasil yang didapatkan akan semakin baik, namun waktu yang dibutuhkan untuk membangun model tersebut juga menjadi lebih panjang. Dalam hal ini, pada proses \textit{training} menggunakan \textit{pretrained weight} YOLOv5n membutuhkan waktu kisaran 2 jam, YOLOv5s membutuhkan waktu kisaran 4 jam, dan YOLOv5m membutuhkan waktu kisaran 8 jam. Secara spesifik detail dari proses \textit{training} menggunakan variasi \textit{pretrained weight} akan dibahas pada sub pengujian menggunakan \textit{pretrained weight} YOLOv5 bervariasi.
 
 % Pada proses pengujian didapatkan hasil bahwa model 
 % sementara masih \textit{\textbf{overfit}} dikarenakan walaupun pada hasil \textit{training} memiliki akurasi cukup tinggi, namun ketika dilakukan uji coba menggunakan gambar diluar dataset yag telah disediakan hasilnya masih berantakan. \par
@@ -375,10 +369,41 @@ Ketika seluruh \textit{bounding box} telah disortir dan dikelompokkan berdasarka
 
 Pada sub ini dilakukan berbagai skenario pengujian guna mengetahui tingkat kesalahan dan membuka potensi pengembangan penelitian dimasa mendatang serta menarik kesimpulan secara keseluruhan. Secara spesifik, skenario pengujian yang dilakukan yaitu sebagai berikut: \par
 
+\subsection{Pengujian Performa YOLOv5s}
+\label{subsec:pengujianperformayolov5s}
+
+Pada pengujian pertama yaitu pengujian performa YOLOv5s. Tujuan dari pengujian ini yaitu membandingkan hasil model pengenalan huruf balok dengan model yang telah ada untuk mengetahui perbandingan performa antara model \textit{existing} dengan model pengenalan huruf balok yang telah dibuat peneliti. Pada bagian pengujian ini, model pengenalan huruf balok akan dibandingkan oleh model yang telah dibuat pada \textit{paper} berjudul \textit{"Safety Helmet Detection Based on YOLOv5"} oleh Zhou et al. Berikut merupakan perbandingan hasil antara model pengenalan huruf balok dan model \textit{safety helmet}.
+
+\begin{center}
+  \begin{longtable}[c]{|l|c|c|}
+    \caption{Perbandingan Hasil YOLOv5s}
+    \label{tab:pengujianperformayolov5}\\
+    \hline
+                          & \begin{tabular}[c]{@{}c@{}}\textit{Safety Helmet} \\ \citep{zhou2021safety}\end{tabular}  & \begin{tabular}[c]{@{}c@{}}Pengenalan Teks \\ Huruf Balok\end{tabular} \\ \hline
+    \endhead
+    %
+    \textit{Class Number}  & 2                      & 30                                                                     \\ \hline
+    \textit{Learning Rate} & 0.01                   & 0.01                                                                   \\ \hline
+    \textit{Optimizer}     & SGD                    & SGD                                                                    \\ \hline
+    \textit{Batch-Size}    & 16                     & 16                                                                     \\ \hline
+    \textit{Image-Size}    & 640*640                & 416*416                                                                \\ \hline
+    mAP                    & 0.936                  & 0.828                                                                  \\ \hline
+  \end{longtable}
+\end{center}
+
+Dari perbandingan antara model huruf balok dan model \textit{safety helmet} didapatkan bahwa hasil dari model \textit{safety helmet} memiliki hasil lebih baik daripada model huruf balok dengan nilai mAP model \textit{safety helmet} sebesar 0.936 dan model huruf balok sebesar 0.828. Perbedaan nilai ini dapat disebabkan oleh beberapa hal, yaitu:
+\begin{enumerate}[nolistsep]
+  \item \textbf{Jumlah Kelas Objek pada Dataset.} Banyaknya jumlah kelas pada suatu model dapat mempengaruhi hasil akurasi model dan juga proses \textit{training} model. Pada model \textit{safety helmet} memiliki 2 kelas objek sedangkan pada model huruf balok memiliki 30 kelas.
+  \item \textbf{Jumlah Anotasi pada Dataset.} Banyaknya anotasi pada suatu dataset juga memiliki pengaruh dalam hasil akurasi model dan juga lama proses \textit{training} model.
+  \item \textbf{Variasi pada Tiap Kelas Objek.} Banyaknya variasi dalam sebuah kelas objek yang sama dapat mempengaruhi hasil akurasi. Variasi yang dicakup pada bagian ini meliputi variasi pengambilan gambar, variasi pencahayaan, variasi bentuk objek. 
+  % Pada model \textit{safety helmet} variasi objeknya yaitu untuk kelas \textit{"helmet"} yaitu kepala orang dengan menggunakan helm keselamatan dan untuk kelas "alarm" yaitu kepala orang yang tidak menggunakan helm keselamatan. Sedangkan pada model huruf balok memiliki variasi objek yaitu sebanyak 30 kelas objek. 
+  Adapun bentuk helm keselamatan secara umum memiliki bentuk yang identik, sedangkan pada huruf tulis pada papan tulis memiliki banyak variasi bentuk tergantung dengan siapa penulis atau pembuat dataset.
+\end{enumerate}
+
 \subsection{Pengujian Menggunakan \textit{Pretrained Weight} Model yang Bervariasi}
 \label{subsec:pengujianpretrainedweight}
 
-Pada pengujian pertama yaitu pengujian menggunakan \textit{pretrained weight} model yang bervariasi. Tujuan dari pengujian ini yaitu untuk membandingkan performa dan hasil yang didapat dengan performa dan hasil yang didapat dari model lain. Pada pengujian dengan \textit{pretrained weight} model ini menggunakan model YOLOv5n, YOLOv5s, dan YOLOv5m. Pengujian dilaksanakan dengan cara melakukan proses \textit{train} dengan konfigurasi serupa antar parameter dan \textit{hyperparameter} seperti pada Tabel \ref*{tb:parametertrain}. Dari pengujian pertama ini didapatkan hasil seperti pada Tabel \ref*{tb:variasipretrainedweight} berikut. \par
+Pada pengujian kedua yaitu pengujian menggunakan \textit{pretrained weight} model yang bervariasi. Tujuan dari pengujian ini yaitu untuk membandingkan performa dan hasil yang didapat dengan performa dan hasil yang didapat dari model lain. Pada pengujian dengan \textit{pretrained weight} model ini menggunakan model YOLOv5n, YOLOv5s, dan YOLOv5m. Pengujian dilaksanakan dengan cara melakukan proses \textit{train} dengan konfigurasi serupa antar parameter dan \textit{hyperparameter} seperti pada Tabel \ref*{tb:parametertrain}. Dari pengujian pertama ini didapatkan hasil seperti pada Tabel \ref*{tb:variasipretrainedweight} berikut. \par
 
 \begin{center}
   \begin{longtable}[c]{|c|c|c|c|}
@@ -386,8 +411,6 @@ Pada pengujian pertama yaitu pengujian menggunakan \textit{pretrained weight} mo
     \label{tb:variasipretrainedweight}\\
     \hline
     \textbf{}                                                                          & \textbf{YOLOv5n} & \textbf{YOLOv5s} & \textbf{YOLOv5m} \\ \hline
-    %\endfirsthead
-    %
     \endhead
     %
     \textit{\textbf{\begin{tabular}[c]{@{}c@{}}Training\\ Box Loss\end{tabular}}}      & 0.020503           & 0.019025         & \textbf{0.017891}          \\ \hline
